@@ -27,7 +27,7 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
     transactions.push(await ens.setOwner(namehash('reverse'), ZERO_ADDRESS))
     // ESTIMATE GAS -->
     console.log(`Waiting on settings to take place on reverse-registrar ${transactions.length}`)
-    await Promise.all(transactions.map((tx) => tx.wait()));
+    // await Promise.all(transactions.map((tx) => tx.wait()));
 
 
 

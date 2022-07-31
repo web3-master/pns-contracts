@@ -64,7 +64,6 @@ module.exports = {
       accounts: {
         mnemonic: ""
       },
-      blockGasLimit: 890102,
       gasPrice:4000000000,
       gas: 2557123,
     }

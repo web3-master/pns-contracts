@@ -4,7 +4,6 @@ const tld_map = {
     'mainnet': ['xyz'],
     'ropsten': ['xyz'],
     'localhost': ['xyz'],
-    'fuji': ['xyz']
 }
 
 const ZERO_HASH = '0x0000000000000000000000000000000000000000000000000000000000000000';
