@@ -19,7 +19,7 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
     transactions.push(await ens.setSubnodeOwner(ZERO_HASH, sha3('reverse'), deployer))
     transactions.push(await ens.setSubnodeOwner(namehash.hash('reverse'),sha3('addr'),reverseRegistrar.address))
     console.log(`Waiting on settings to take place of reverse registrar ${transactions.length}`)
-    // await Promise.all(transactions.map((tx) => tx.wait()));
+    await Promise.all(transactions.map((tx) => tx.wait()));
 }
 
 module.exports.tags = ['reverse-registrar'];

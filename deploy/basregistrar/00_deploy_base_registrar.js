@@ -25,7 +25,7 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
     transactions.push(await ens.setSubnodeOwner(ZERO_HASH, sha3('pls'), base.address))
 
     console.log(`Waiting on ${transactions.length} transactions setting base registrar`);
-    // await Promise.all(transactions.map((tx) => tx.wait()));
+    await Promise.all(transactions.map((tx) => tx.wait()));
 }
 
 

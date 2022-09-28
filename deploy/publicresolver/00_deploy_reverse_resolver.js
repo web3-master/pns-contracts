@@ -25,7 +25,7 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
     // ESTIMATE GAS -->
     transactions.push(await controller.setPriceOracle(priceOracle.address, {from: deployer}));
     console.log(`Waiting on settings to take place on reverse-registrar ${transactions.length}`)
-    // await Promise.all(transactions.map((tx) => tx.wait()));
+    await Promise.all(transactions.map((tx) => tx.wait()));
 
 
 

@@ -5,6 +5,7 @@ require("@nomiclabs/hardhat-solhint");
 require("hardhat-gas-reporter");
 require("hardhat-deploy");
 require("hardhat-deploy-ethers");
+require("@nomiclabs/hardhat-etherscan");
 
 // Load environment variables from .env file. Suppress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables
@@ -60,9 +61,10 @@ module.exports = {
     },
     pulsechain: {
       url: 'https://rpc.v2b.testnet.pulsechain.com',
+      tags: ["legacy"],
       chainId: 941,
       accounts: {
-        mnemonic: ""
+        mnemonic: "unaware pencil chalk please aspect image soccer rally carry jealous kangaroo round"
       },
       gasPrice:4000000000,
       gas: 2557123,

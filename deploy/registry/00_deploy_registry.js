@@ -5,9 +5,7 @@ const ZERO_HASH = "0x00000000000000000000000000000000000000000000000000000000000
 const ethernal = require('hardhat-ethernal');
 module.exports = async ({getNamedAccounts, deployments, network}) => {
     const {deploy} = deployments;
-    const {deployer, owner} = await getNamedAccounts();
-
-    
+    const {deployer, owner} = await getNamedAccounts();    
 
     if(network.tags.legacy) {
         const contract = await deploy('LegacyENSRegistry', {
