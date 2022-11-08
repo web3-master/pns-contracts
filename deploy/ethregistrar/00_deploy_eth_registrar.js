@@ -12,7 +12,7 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
 
     await deploy('ETHRegistrarController', {
         from: deployer, 
-        args: [baseRegistrar.address, priceOracle.address, 600, 86400],
+        args: [baseRegistrar.address, priceOracle.address, 10, 86400],
         log: true
     })  
 
@@ -20,7 +20,7 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
     const ens = await ethers.getContract('ENSRegistry')
     const transactions = []
 
-    transactions.push(await ens.setSubnodeOwner(ZERO_HASH,sha3('pls'),controller.address));
+    //transactions.push(await ens.setSubnodeOwner(ZERO_HASH,sha3('pls'),controller.address));
     transactions.push(await baseRegistrar.addController(controller.address, {from: deployer}));
     // ESTIMATE GAS -->
     transactions.push(await controller.setPriceOracle(priceOracle.address, {from: deployer}));

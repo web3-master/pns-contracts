@@ -17,14 +17,16 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
 
     const resolver = await ethers.getContract('PublicResolver')
     const ethregistrar = await ethers.getContract('ETHRegistrarController')
-
+    const base = await ethers.getContract('BaseRegistrarImplementation');
+    
     const transactions = []
     transactions.push(await ens.setSubnodeOwner(ZERO_HASH, sha3('pls'), owner))
     transactions.push(await ens.setResolver(namehash.hash('pls'), resolver.address))
     transactions.push(await resolver['setAddr(bytes32,address)'](namehash.hash('pls'), resolver.address))
     transactions.push(await resolver.setInterface(namehash.hash('pls'), "0x018fac06", ethregistrar.address))
+    transactions.push(await ens.setSubnodeOwner(ZERO_HASH, sha3('pls'), base.address))
     console.log(`Waiting on settings to take place on resolvers ${transactions.length}`)
-    await Promise.all(transactions.map((tx) => tx.wait()));    
+    await Promise.all(transactions.map((tx) => tx.wait()));
 }
 
 module.exports.tags = ['public-resolver'];

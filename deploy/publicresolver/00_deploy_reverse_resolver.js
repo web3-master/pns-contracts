@@ -20,7 +20,7 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
 
     const transactions = []
 
-    transactions.push(await ens.setSubnodeOwner(ZERO_HASH,sha3('pls'),controller.address));
+    //transactions.push(await ens.setSubnodeOwner(ZERO_HASH,sha3('pls'),controller.address));
     transactions.push(await baseRegistrar.addController(controller.address, {from: deployer}));
     // ESTIMATE GAS -->
     transactions.push(await controller.setPriceOracle(priceOracle.address, {from: deployer}));

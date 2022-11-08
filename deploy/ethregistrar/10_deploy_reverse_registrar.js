@@ -28,9 +28,6 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
     // ESTIMATE GAS -->
     console.log(`Waiting on settings to take place on reverse-registrar ${transactions.length}`)
     await Promise.all(transactions.map((tx) => tx.wait()));
-
-
-
 }
 
 module.exports.dependencies = ['registry', 'public-resolver']
