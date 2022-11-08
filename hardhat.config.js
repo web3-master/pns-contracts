@@ -61,7 +61,8 @@ module.exports = {
     },
     pulsechain: {
       url: 'https://rpc.v2b.testnet.pulsechain.com',
-      tags: ["legacy"],
+      saveDeployments: true,
+      // tags: ["legacy"],
       chainId: 941,
       accounts: {
         mnemonic: "unaware pencil chalk please aspect image soccer rally carry jealous kangaroo round"

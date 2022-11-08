@@ -4,7 +4,8 @@
   "description": "PNS contracts",
   "scripts": {
     "test": "npx hardhat test",
-    "deploy": "npx hardhat deploy --network localhost",
+    "deploy-local": "npx hardhat deploy --network localhost",
+    "deploy-pulsechain": "npx hardhat deploy --network pulsechain",
     "lint": "npx hardhat check",
     "build": "npx hardhat compile",
     "prepublishOnly": "yarn build",
